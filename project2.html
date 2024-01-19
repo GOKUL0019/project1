@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOKUL RESTAURANTS</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .food-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            width: 250px; 
+        }
+
+        .food-item:hover {
+            background-color: #eee;
+        }
+
+        .food-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        #order-summary {
+            margin-top: 20px;
+            text-align: center;
+        }
+        button{
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GOKUL RESTAURANTS</h1>
+    </header>
+    <section id="menu">
+        <div class="food-item" onclick="addToOrder('Burger', 299)">
+            <img src="https://www.tasteofhome.com/wp-content/uploads/2017/10/exps28800_UG143377D12_18_1b_RMS.jpg" alt="Burger" class="food-image">
+            <p>Burger - ₹299</p>
+        </div>
+        <div class="food-item" onclick="addToOrder('shawarma', 299)">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.JqPw4DUQLFQr1ogr-GCrhgHaE7&pid=Api&P=0&h=180" alt="Pizza" class="food-image">
+            <p>Shawarma- ₹299</p>
+        </div>
+        <div class="food-item" onclick="addToOrder('Salad', 199)">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.2LT7l2oEDjsqW_SCNg4UEQHaFE&pid=Api&P=0&h=180" alt="Salad" class="food-image">
+            <p>Salad - ₹199</p>
+        </div>
+        <div class="food-item" onclick="addToOrder('Pasta', 200)">
+            <img src="https://tse3.mm.bing.net/th?id=OIP._EfD2TMPvjcb1xRI3seBbAHaE8&pid=Api&P=0&h=180" alt="Pasta" class="food-image">
+            <p>Pasta - ₹200</p>
+        </div>
+        <div class="food-item" onclick="addToOrder('parotta', 80)">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.Dt21f2jqebHE0w1mL3CcVgHaE7&pid=Api&P=0&h=180" alt="Sushi" class="food-image">
+            <p>Parotta - ₹80</p>
+        </div>
+        <div class="food-item" onclick="addToOrder('Sandwich', 149)">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.dEyEvqfGH62TNJfiOrLy2gHaE8&pid=Api&P=0&h=180" alt="Sandwich" class="food-image">
+            <p>Sandwich - ₹149</p>
+        </div>
+        <div class="food-item" onclick="addToOrder('Chicken 65', 100)">
+            <img src="http://recipes.timesofindia.com/photo/53683545.cms" alt="Curry" class="food-image">
+            <p>Chicken 65 - ₹100</p>
+        </div>
+            <div class="food-item" onclick="addToOrder('Chicken Kuthu Parotta ', 110)">
+                <img src="https://2.bp.blogspot.com/-KLubE3S7E1U/VzvjjJXMadI/AAAAAAAADAE/bAVxhDJpvZIdRm4zqCi1Mr2Uh_CTmEBbACK4B/s1600/image_5.jpeg" alt="Curry" class="food-image">
+                <p>Chicken Kuthu Parrota- ₹110</p>
+            </div>
+            <div class="food-item" onclick="addToOrder('Dosa', 50)">
+                <img src="https://www.efghfoods.com/wp-content/uploads/2020/11/Blog-2-min.jpg" alt="Curry" class="food-image">
+                <p>Dosa- ₹50</p>
+            </div>
+            <div class="food-item" onclick="addToOrder('IDLY', 40)">
+                <img src="https://i.pinimg.com/originals/1e/63/fa/1e63fac5c0dafe20399b676dd4e07213.jpg" alt="Curry" class="food-image">
+                <p>IDLY- ₹40</p>
+            </div>
+        </div>
+
+    </section>
+    <div id="order-summary">
+        <h2>Your Order Summary</h2>
+        <p>Total Items: <span id="totalItems">0</span></p>
+        <p>Total Price: ₹<span id="totalPrice">0.00</span></p>
+    </div>
+    <button onclick="confirm()">Confirm</button>
+
+    <script>
+        let orderCount = 0;
+        let totalOrderPrice = 0;
+
+        function addToOrder(foodItem, price) {
+            orderCount++;
+            totalOrderPrice += price;
+            updateOrderSummary(orderCount, totalOrderPrice);
+            alert(`Added ${foodItem} to your order!`);
+        }
+
+        function updateOrderSummary(count, price) {
+            document.getElementById('totalItems').innerText = count;
+            document.getElementById('totalPrice').innerText = price.toFixed(2);
+        }
+        function confirm(){
+            alert("YOUR ORDERED SUCCESFULLY");}
+    </script>
+</body>
+</html>
